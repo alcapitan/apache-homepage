@@ -32,13 +32,14 @@ A contribution for the method of installation on Windows would be appreciated.
 ```
 sudo apt update && sudo apt install apache2 git
 git clone https://github.com/alcapitan/apache-homepage.git
-sudo mkdir -p /var/www/apache-homepage
-sudo cp -r ./apache-homepage /var/www/apache-homepage
-sudo cp /var/www/apache-homepage/apache-website-config-file.conf /etc/apache2/sites-available
+sudo mkdir -p /var/www
+sudo cp -r ./apache-homepage /var/www
 sudo su -
+cp /var/www/apache-homepage/apache-website-config-file.conf /etc/apache2/sites-available
 cp /var/www/apache-homepage/apache-website-config-file.conf /etc/apache2/sites-available/001-apache-homepage.conf
 a2dissite 000-default.conf
 a2ensite 001-apache-homepage.conf
+systemctl reload apache2
 exit
 ```
 
